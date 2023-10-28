@@ -15,14 +15,16 @@ function App() {
       <div className=" h-screen">
         <button
           onClick={toggleTheme}
-          className="bg-[grey] m-5 text-white font-bold py-2 px-4 rounded focus:outline-none"
+          className="bg-[grey] shadow-xl m-5 text-white font-bold py-2 px-4 rounded focus:outline-none"
         >
           <FontAwesomeIcon
+          className='text-red-200'
             icon={selectedTheme === 'dark' ? faSun : faMoon}
             style={{ marginRight: '8px' }}
           />
            Theme
           <FontAwesomeIcon
+          className='text-orange-500'
             icon={selectedTheme === 'dark' ? faSun : faMoon}
             style={{ marginLeft: '8px' }}
           />

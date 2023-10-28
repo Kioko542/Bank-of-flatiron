@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    color: red;
+
+.th{
+    color: ;
+}
+.td{
+    padding-right: 75px;
 }

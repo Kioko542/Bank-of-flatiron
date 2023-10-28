@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Example from './Theme';
+import './App.css';
+
 const Home = () => {
   const [transactions, setTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,14 +23,15 @@ const Home = () => {
 
   return (
   
-    <div className=' flex flex-col  items-center '>
+    <div className=' flex flex-col  items-center mx-3 '>
       <input
+      className='border py-5 px-8 lg:w-[40%] my-[50px] shadow-lg rounded-lg'
         type="text"
         placeholder="Search by description"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="table">
+      <div className="table ">
       <table>
         <thead>
           <tr>
@@ -38,18 +40,20 @@ const Home = () => {
             <th>Category</th>
             <th>Amount</th>
           </tr>
+          <hr />
         </thead>
-        <tbody>
+        
+        <tbody  className='px-3 overflow-scroll'>
           {transactions
             .filter((transaction) =>
               transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
             )
             .map((transaction) => (
               <tr key={transaction.id}>
-                <td>{transaction.date}</td>
-                <td>{transaction.description}</td>
-                <td>{transaction.category}</td>
-                <td>{transaction.amount}</td>
+                <td className='p-3'>{transaction.date}</td>
+                <td className='p-3'>{transaction.description}</td>
+                <td className='p-3'>{transaction.category}</td>
+                <td className='p-3'>{transaction.amount}</td>
               </tr>
             ))}
         </tbody>

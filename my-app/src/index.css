@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 .dark-theme {
-    background-color: black; /* Example background color for the dark theme */
-    color: white; /* Example text color for the dark theme */
+    background-color:#18122B; /* Example background color for the dark theme */
+    color: #635985; /* Example text color for the dark theme */
     /* Add more styles for your dark theme as needed */
   }
   
