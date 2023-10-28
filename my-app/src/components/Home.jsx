@@ -23,37 +23,36 @@ const Home = () => {
 
   return (
   
-    <div className=' flex flex-col  items-center mx-3 '>
+    <div className=' flex  gap-5 px-4   h-full items-center m-[auto] content-center'>
       <input
-      className='border py-5 px-8 lg:w-[40%] my-[50px] shadow-lg rounded-lg'
+      className='border-blue-700 border-2  rounded-xl shadow border-solid py-5 px-8 lg:w-[30%] my-[50px]'
         type="text"
         placeholder="Search by description"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="table ">
+      <div className="table  ">
       <table>
         <thead>
-          <tr>
+          <tr className='text-purple-500'>
             <th>Date</th>
             <th>Description</th>
             <th>Category</th>
             <th>Amount</th>
           </tr>
-          <hr />
         </thead>
         
-        <tbody  className='px-3 overflow-scroll'>
+        <tbody  className='px-3  overflow-y-scroll'>
           {transactions
             .filter((transaction) =>
               transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
             )
-            .map((transaction) => (
-              <tr key={transaction.id}>
-                <td className='p-3'>{transaction.date}</td>
-                <td className='p-3'>{transaction.description}</td>
-                <td className='p-3'>{transaction.category}</td>
-                <td className='p-3'>{transaction.amount}</td>
+            .map((transaction) => (  
+              <tr className='h-full' key={transaction.id}>
+                <td className='px-[12px] py-[5px]'>{transaction.date}</td>
+                <td className='px-[12px] py-[5px]'>{transaction.description}</td>
+                <td className='px-[12px] py-[5px]'>{transaction.category}</td>
+                <td className='px-[12px] py-[5px]'>{transaction.amount}</td>
               </tr>
             ))}
         </tbody>
