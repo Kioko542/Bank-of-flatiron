@@ -34,7 +34,7 @@ const Home = () => {
       <div className="table  ">
       <table>
         <thead>
-          <tr className='text-purple-500'>
+          <tr className='text-purple-700'>
             <th>Date</th>
             <th>Description</th>
             <th>Category</th>
