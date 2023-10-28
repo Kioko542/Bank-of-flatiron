@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Example from './Theme';
 const Home = () => {
   const [transactions, setTransactions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +21,8 @@ const Home = () => {
   }, []); 
 
   return (
-    <div className=' flex flex-col content-center items-center m-5'>
+  
+    <div className=' flex flex-col  items-center '>
       <input
         type="text"
         placeholder="Search by description"
