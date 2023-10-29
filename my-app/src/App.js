@@ -11,8 +11,8 @@ function App() {
   };
 
   return (
-    <div className= {`App ${selectedTheme === 'dark' ? 'dark-theme' : ''}`}>
-      <div className=" ">
+    <div className={`App ${selectedTheme === 'dark' ? 'dark-theme' : ''}`}>
+      <div className=" h-screen">
         <button
           onClick={toggleTheme}
           className="bg-[grey] shadow-xl m-5 text-white font-bold py-2 px-4 rounded focus:outline-none"
@@ -29,10 +29,9 @@ function App() {
             style={{ marginLeft: '8px' }}
           />
         </button>
-        <Home className="red" />
+        <Home />
 
       </div>
-
     </div>
   );
 }

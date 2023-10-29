@@ -6,7 +6,11 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [sortBy, setSortBy] = useState('date');
+  const [selectedTheme, setSelectedTheme] = useState('light');
 
+  const toggleTheme = () => {
+    setSelectedTheme(selectedTheme === 'light' ? 'dark' : 'light');
+  };
   useEffect(() => {
     fetch('http://localhost:3000/transactions')
       .then((response) => {
@@ -37,27 +41,35 @@ const Home = () => {
   }, 0);
 
   return (
-    <div className='flex gap-5 px-4 h-full items-center mx-auto content-center'>
+    <div id='all' className='flex gap-5 px-4   items-center mx-auto content-center'>
+      
+
+      
+
+      <div className="table  " style={{ maxHeight: '900px', overflowY: 'auto' }}>
       <input
-        className='border-blue-700 border-2 rounded-xl shadow border-solid py-5 px-8 lg:w-[30%] my-[50px]'
+        className='border-blue-700  border-2 rounded-xl shadow border-solid py-5 px-8 lg:w-[50%] my-[50px]'
         type="text"
         placeholder="Search by description"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-
       <select
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
-        className='border-blue-700 border-2 rounded-xl shadow border-solid py-5 px-8 lg:w-[30%] my-[50px]'
+        className='border-blue-700 border-2 rounded-xl mx-3 shadow border-solid  py-5 px-8 lg:w-[35%] my-[50px]'
       >
-        <option value="">All Categories</option>
-        <option value="Food">Food</option>
-        <option value="Income">Income</option>
+        
+  <option value="">All Categories</option>
+  <option value="Food">Food</option>
+  <option value="Income">Income</option>
+  <option value="Fashion">Fashion</option>
+  <option value="Gift">Gift</option>
+  <option value="Transportation">Transportation</option>
+  <option value="Entertainment">Entertainment</option>
+  <option value="Housing">Housing</option>
       </select>
-
-      <div className="table">
-        <table>
+        <table className='h-[auto] bg-red-300'>
           <thead>
             <tr className='text-purple-700'>
               <th>Date</th>
@@ -69,7 +81,7 @@ const Home = () => {
             </tr>
           </thead>
 
-          <tbody className='px-3 overflow-y-scroll'>
+          <tbody className=''>
             {transactions
               .filter((transaction) =>
                 transaction.description.toLowerCase().includes(searchTerm.toLowerCase()) &&
@@ -77,10 +89,10 @@ const Home = () => {
               )
               .map((transaction) => (
                 <tr className='h-full' key={transaction.id}>
-                  <td className='px-[12px] py-[5px]'>{transaction.date}</td>
-                  <td className='px-[12px] py-[5px]'>{transaction.description}</td>
-                  <td className='px-[12px] py-[5px]'>{transaction.category}</td>
-                  <td className='px-[12px] py-[5px]'>{transaction.amount}</td>
+                  <td>{transaction.date}</td>
+                  <td>{transaction.description}</td>
+                  <td>{transaction.category}</td>
+                  <td>{transaction.amount}</td>
                 </tr>
               ))}
           </tbody>
@@ -93,4 +105,3 @@ const Home = () => {
 };
 
 export default Home;
-

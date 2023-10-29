@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+.all{
     width:100%;
     height: 100vh;
 }
-
+.table{
+    height: 100vh;
+}
 .dark-theme {
     background-color:#18122B; 
     color: #635985; 
