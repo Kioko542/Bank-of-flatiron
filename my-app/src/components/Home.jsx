@@ -105,7 +105,7 @@ const Home = () => {
           </tbody>
         </table>
       </div>
-      <div>Total Balance: ${totalBalance.toFixed(2)}</div>
+      <div className='text-xl bg-orange-600 p-2'>Total Balance: ${totalBalance.toFixed(2)}</div>
     </div>
   );
 };
